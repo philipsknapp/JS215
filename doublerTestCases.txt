@@ -1,0 +1,52 @@
+doubler([4, 0, -3]); // [8, 0, -6]
+doubler([-Infinity, 2, NaN]); // [-Infinity, 4, NaN]
+
+doubler(['cat', '', ' ']); // ['catcat', '', '  ']
+
+doubler(['cat', 4, ['a'], NaN]) // ['catcat', 8, ['a'], ['a'], NaN]
+
+let test1 = ['a', 'b', 'c'];
+doubler(test1);
+test1; // ['a', 'b', 'c']
+
+let test2 = doubler([[], true, undefined, {}]); //[[], [], true, true, undefined, undefined, {}, {}]
+test2[0] === test2[1] //true
+test2[6] === test2[7] //true
+
+let element3 = [3];
+let test3 = [element3, "ok", element3];
+let double3 = doubler(test3); // [[3], [3], "okok", [3], [3]]
+double3[1] === double3[3]; //true
+
+doubler([[['a'], ['b']], 'c']); // [[['a'], ['b']], [['a'], ['b']], 'cc']
+
+let element4 = { a: { b: 1, c: 2, }, d: 3 }
+doubler([0, element4, "zero"]); // [0, { a: { b: 1, c: 2, }, d: 3 }, { a: { b: 1, c: 2, }, d: 3 }, "zerozero"];
+
+let test5 = [1, 2];
+test5[5] = 6; // currently [1, 2, 3 empty values, 6]
+doubler(test5); // [2, 4, 12]
+doubler(test5).length; // 3
+
+let test6 = ['a', 'b'];
+test6['c'] = 'd';
+doubler(test6) // ['aa', 'bb', 'c': 'd'];
+
+let el7 = [1, 2]; 
+el7[5] = 6; // currently [1, 2, 3 empty values, 6]
+doubler([el7]); // [[1, 2, 3 empty values, 6], [1, 2, 3 empty values, 6]]
+
+let el8 = ['a', 'b'];
+el8['c'] = 'd';
+doubler([el8]); // [['a', 'b', 'c': 'd'], ['a', 'b', 'c': 'd']]
+
+doubler([]); // []
+doubler(['a', 'b'], 'c'); // ['aa', 'bb']
+doubler('abc123'); // ['aa', 'bb', 'cc', '11', '22', '33']
+doubler(''); // []
+doubler(123); // [2, 4, 6]
+doubler({a: "val1", b: 2, c: ["arr"]}) // ["val1val1", 4, ["arr"], ["arr"]]
+- all other kinds of inputs are invalid, and should return the string 'Invalid input'
+doubler(-123); // 'Invalid input'
+doubler(true); // 'Invalid input'
+doubler(undefined); // 'Invalid input'

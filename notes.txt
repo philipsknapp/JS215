@@ -1,0 +1,46 @@
+L1:
+arguments passed to forEach, map, etc callback: element, index, array
+  - what about reduce?
+no break or return expression allows you to break out of forEach
+Array.prototype.some()
+- flashcard pass of other array & object methods
+
+- L1 quiz 100% effectively - 
+
+L2:
+pass multi-char strings to indexOf/lastIndexOf
+string concat method
+calling substring with negative values like (1, -1); the way this differs from slice
+error with trying to call a method on an integer (356.toString) -> interprets the . as a decimal, not a method call operator. Can use 356..toString() instead, but prefer parentheses (356).toString
+RegExp.prototype.exec
+String.prototype.search
+String.prototype.includes
+- flashcard pass of other string methods
+
+- L2 quiz - Q1, Q3, Q4, Q6 - 
+
+L3:
+writing your own test case:
+  - happy paths
+  - edge case inputs (empty, boundaries, duplicates)
+    - for boundaries (the point where the behavior of the function changes), you should have a test case for both edges of the boundary.
+  - bad inputs
+  
+DS&A video:
+advantage of representing data as strings: you can use RegEx
+arrays: easy iteration and making use of index
+algorithm should express operations in terms of what's available to the data structure
+Always try to solve a problem in 1-2 sentences. If you can't, break it down.
+Fundamentally pedac is a process of reducing risk as you solve the problem - you're not misunderstanding the problem or introducing bugs.
+
+P&E
+Common Test Cases:
+- Input types
+- Special values (e.g. infinity, sparse array)
+- invalid inputs & how to handle
+- explicit requirements (only one requirement per test case)
+
+
+
+
+- L3 Quiz 100% - 
